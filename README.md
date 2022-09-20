@@ -1,4 +1,5 @@
-<h2> Pynetbox (API scripting) </h2>
+<h2> Sample Netbox API CRUD </h2>
+<h3> Pynetbox (API scripting) </h3>
 https://github.com/netbox-community/pynetbox <br />
 Install: pip3 install pynetbox<br />
 
