@@ -1,0 +1,14 @@
+switch-1.foo.tld:
+  driver: "nxos_ssh"
+
+switch-2.bar.tld:
+  driver: "junos"
+  target: "192.0.2.3"
+
+switch-3.foo.tld:
+  driver: "nxos"
+  discovery_protocol: "cdp"
+
+switch-4.foo.tld:
+  driver: "nxos"
+  discovery_protocol: "multiple"
