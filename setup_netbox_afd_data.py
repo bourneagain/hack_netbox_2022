@@ -2,6 +2,8 @@ import pynetbox
 import pprint
 import sys
 
+# Create new token from: https://demo.netbox.dev/static/docs/rest-api/authentication/
+
 token = "431408c934524f47092f14a5b26972ccca38d58b"
 nb = pynetbox.api(url="http://172.19.249.189:8000", token=token)
 def delete_devices():
