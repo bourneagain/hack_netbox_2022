@@ -1,0 +1,88 @@
+(Pdb) c
+(Pdb) --KeyboardInterrupt--
+(Pdb) --KeyboardInterrupt--
+(Pdb) --KeyboardInterrupt--
+(Pdb)
+(Pdb) nb.dcim.sites.create()
+(Pdb) nb.dcim.sites.create()
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9a", slug="Edge-Prod-MIA30r9a")
+(Pdb) dir(nb.dcim.sites.create)
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"key"="value"})
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"key":"value"})
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"key--KeyboardInterrupt--
+(Pdb) nb.extras.custom_fields.create()
+(Pdb) nb.extras.custom_fields.create(content_types="Site name", type="text")
+(Pdb) nb.extras.custom_fields.create(content_types=["Site name"], type=["text"])
+(Pdb) nb.extras.custom_fields.create(content_types=["text"], type="text", name="IPV4UnicastAddress")
+(Pdb) nb.extras.custom_fields.create(content_types=["string"], type="text", name="IPV4UnicastAddress")
+(Pdb) nb.extras.custom_fields.create(content_types=["string"], type="te--KeyboardInterrupt--tAddress")
+(Pdb) --KeyboardInterrupt--
+(Pdb) --KeyboardInterrupt--
+(Pdb) nb.extras.custom_fields.create(content_types=["string"], type="text", name="IPV4UnicastAddress")
+(Pdb) # IT failed :(
+(Pdb) print(list(nb.extras.content_types.all()))
+(Pdb)
+(Pdb) list(nb.extras.content_types.all())
+(Pdb) list(nb.extras.content_types.all()
+(Pdb) list(nb.extras.content_types.all())
+(Pdb) for x in nb.extras.content_types.all(): print(x)
+(Pdb) nb.extras.custom_fields.create(content_types=[asdasd])
+(Pdb) nb.extras.custom_fields.create(content_types=["asdasd"])
+(Pdb) nb.extras.custom_fields.create(content_types=["ipam.IP_address"])
+(Pdb) nb.extras.custom_fields.create(content_types=["ipam.IP Address"], name="IPV4UnicastAddress", type="text")
+(Pdb) nb.extras.custom_fields.create(content_types=["ipam.IP address"], name="IPV4UnicastAddress", type="text")
+(Pdb) nb.extras.custom_fields.create(content_types=["ipam.ip-addresses"], name="IPV4UnicastAddress", type="text")
+(Pdb) for x in nb.extras.content_types.all(): print(x.app_lable, x.model_name)
+(Pdb) for x in nb.extras.content_types.all(): print(x.app_label, x.model_name)
+(Pdb) for x in nb.extras.content_types.all(): print("%s %s" % (x.app_label, x.model_name))
+(Pdb) for x in nb.extras.content_types.all(): print("%s %s" % (x.app_label, x.model))
+(Pdb) nb.extras.custom_fields.create(content_types=["ipam.ipaddress"], name="IPV4UnicastAddress", type="text")
+(Pdb) print(list(nb.extras.custom_fields.all()))
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields=IPV4UnicastAddress)
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={IPV4UnicastAddress: {"name":"test"}})
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields=[])
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"IPV4UnicastAddress":"40.90.64.80"}_
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"IPV4UnicastAddress":"40.90.64.80"})
+(Pdb) for x in nb.extras.custom_fields.all(): print(dir(x))
+(Pdb) for x in nb.extras.custom_fields.all(): print(dir(x.name))
+(Pdb) for x in nb.extras.custom_fields.all(): print(x.name)
+(Pdb) for x in nb.extras.custom_fields.all(): print(x.id)
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={1:"40.90.64.80"})
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={IPV4UnicastAddress\:"40.90.64.80"})
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={IPV4UnicastAddress:"40.90.64.80"})
+(Pdb) list(nb.dcim.sites.all())[0]
+(Pdb) print(list(nb.dcim.sites.all()))
+(Pdb) for x in nb.dcim.sites.all(): print(dir(x))
+(Pdb) for x in nb.dcim.sites.all(): print("%s %s %s" % (x.name, x.id, x.custom_field))
+(Pdb) for x in nb.dcim.sites.all(): print("%s %s %s" % (x.name, x.id, x.custom_fields))
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={IPV4UnicastAddress="40.90.64.80"})
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"IPV4UnicastAddress": "40.90.64.80"})
+(Pdb) --KeyboardInterrupt--
+(Pdb) nb.extras.custom_fields.create(content_types=["dcim.site"], name="SiteIPV4UnicastAddress", type="text")
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"SiteIPV4UnicastAddres"="40.90.64.80"})
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"SiteIPV4UnicastAddres":"40.90.64.80"})
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={SiteIPV4UnicastAddres:"40.90.64.80"})
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={SiteIPV4UnicastAddress:"40.90.64.80"})
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"SiteIPV4UnicastAddress":"40.90.64.80"})
+(Pdb) nb.dcim.s(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"SiteIPV4UnicastAddress":"40.90.64.80"})--KeyboardInterrupt--
+(Pdb) nb.dcim.device_roles.create(name="EdgeVM", slug="EdgeVM")
+(Pdb) nb.dcim.manufacturer.create()
+(Pdb) nb.dcim.manufacturers.create()
+(Pdb) nb.dcim.manufacturers.create(name="MSFT_TEST_MANUFACTURER", slug="msft")
+(Pdb) print(list(nb.dcim.manufacturers.all()))
+(Pdb) [x.id for x in nb.dcim.manufacturers.all()]
+(Pdb) nb.dcim.device_types.create()
+(Pdb) nb.dcim.device_types.create(manufacturer=14, model="MSFT_DEVICE_MODEL", slug="MSFT_DEVICE_TYPE")
+(Pdb) nb.dcim.devices.create()
+(Pdb) #nb.dcim.devices.create(name="Edge-Prod-MIA30r9a", device_type=
+(Pdb) [x.id for x in nb.dcim.device_types.all()]
+(Pdb) ##nb.dcim.devices.create(name="Edge-Prod-MIA30r9a", device_type=12, device_role=
+(Pdb) [x.id for x in nb.dcim.device_role.all()]
+(Pdb) [x.name for x in nb.dcim.device_role.all()]
+(Pdb) [x.name for x in nb.dcim.device_roles.all()]
+(Pdb) [x.id for x in nb.dcim.device_roles.all()]
+(Pdb) ##nb.dcim.devices.create(name="Edge-Prod-MIA30r9a", device_type=12, device_role=13, site
+(Pdb) [x.id for x in nb.dcim.sites.all()]
+(Pdb) nb.dcim.devices.create(name="Edge-Prod-MIA30r9a", device_type=12, device_role=13, site=18)
+(Pdb) --KeyboardInterrupt--
+(Pdb)
