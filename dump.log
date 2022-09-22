@@ -1,0 +1,443 @@
+shrajendran@shrajendran-ubuntu:~/NETBOX$ cat /^C
+shrajendran@shrajendran-ubuntu:~/NETBOX$ tty
+/dev/pts/7
+shrajendran@shrajendran-ubuntu:~/NETBOX$ ‘I am a virtual di ’
+‘I am a virtual di ’
+‘I am a virtual di adsasdasd’
+shrajendran@shrajendran-ubuntu:~/NETBOX
+shrajendran@shrajendran-ubuntu:~/NETBOX$
+shrajendran@shrajendran-ubuntu:~/NETBOX$ pythyon3 setup_netbox_afd_data.py
+Command 'pythyon3' not found, did you mean:
+  command 'python3' from deb python3 (3.10.4-0ubuntu2)
+Try: sudo apt install <deb name>
+shrajendran@shrajendran-ubuntu:~/NETBOX$ python3 setup_netbox_afd_data.py
+> /home/shrajendran/NETBOX/setup_netbox_afd_data.py(10)<module>()
+-> def delete_devices():
+(Pdb) c
+############# Creating Site...
+afd_site_1
+############# Listing Sites..
+Site id = 16, name = afd_site_1
+############# Creating device role...
+Afd_PF_Host
+############# Listing Device roles...
+Role id = 12, name = Afd_PF_Host
+############# Creating Manufacturer...
+MSFT
+############# Listing manufacturer...
+Manufacturer id = 13, name = MSFT
+############# Creating device type...
+1
+############# Listing manufacturer...
+device_type id = 11
+############# Creating a device: testdev
+testdev
+############# Creating a device: testdev
+device name = testdev, device id = 6
+shrajendran@shrajendran-ubuntu:~/NETBOX$ vim setup_netbox_afd_data.py
+shrajendran@shrajendran-ubuntu:~/NETBOX$ python3 setup_netbox_afd_data.py
+> /home/shrajendran/NETBOX/setup_netbox_afd_data.py(34)<module>()
+-> site_list = []
+(Pdb) --KeyboardInterrupt--
+(Pdb) --KeyboardInterrupt--
+(Pdb) --KeyboardInterrupt--
+(Pdb)
+Traceback (most recent call last):
+  File "/home/shrajendran/NETBOX/setup_netbox_afd_data.py", line 34, in <module>
+    site_list = []
+  File "/home/shrajendran/NETBOX/setup_netbox_afd_data.py", line 34, in <module>
+    site_list = []
+  File "/usr/lib/python3.10/bdb.py", line 90, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/usr/lib/python3.10/bdb.py", line 115, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+shrajendran@shrajendran-ubuntu:~/NETBOX$ vim setup_netbox_afd_data.py
+shrajendran@shrajendran-ubuntu:~/NETBOX$ python3 setup_netbox_afd_data.py
+> /home/shrajendran/NETBOX/setup_netbox_afd_data.py(10)<module>()
+-> def delete_devices():
+(Pdb) nb.dcim.sites.create()
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'name': ['This field is required.'], 'slug': ['This field is required.']}
+(Pdb) nb.dcim.sites.create()
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'name': ['This field is required.'], 'slug': ['This field is required.']}
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9a", slug="Edge-Prod-MIA30r9a")
+Edge-Prod-MIA30r9a
+(Pdb) dir(nb.dcim.sites.create)
+['__call__', '__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__func__', '__ge__', '__get__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__self__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"key"="value"})
+*** SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='?
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"key":"value"})
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'__all__': ["Unknown field name 'key' in custom field data."]}
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"key--KeyboardInterrupt--
+(Pdb) nb.extras.custom_fields.create()
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'content_types': ['This field is required.'], 'type': ['This field is required.'], 'name': ['This field is required.']}
+(Pdb) nb.extras.custom_fields.create(content_types="Site name", type="text")
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'content_types': ['Expected a list of items but got type "str".'], 'name': ['This field is required.']}
+(Pdb) nb.extras.custom_fields.create(content_types=["Site name"], type=["text"])
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'content_types': ["Invalid value. Specify a content type as '<app_label>.<model_name>'."], 'type': ['Value must be passed directly (e.g. "foo": 123); do not use a dictionary or list.'], 'name': ['This field is required.']}
+(Pdb) nb.extras.custom_fields.create(content_types=["text"], type="text", name="IPV4UnicastAddress")
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'content_types': ["Invalid value. Specify a content type as '<app_label>.<model_name>'."]}
+(Pdb) nb.extras.custom_fields.create(content_types=["string"], type="text", name="IPV4UnicastAddress")
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'content_types': ["Invalid value. Specify a content type as '<app_label>.<model_name>'."]}
+(Pdb) nb.extras.custom_fields.create(content_types=["string"], type="te--KeyboardInterrupt--tAddress")
+(Pdb) --KeyboardInterrupt--
+(Pdb) --KeyboardInterrupt--
+(Pdb) nb.extras.custom_fields.create(content_types=["string"], type="text", name="IPV4UnicastAddress")
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'content_types': ["Invalid value. Specify a content type as '<app_label>.<model_name>'."]}
+(Pdb) # IT failed :(
+*** SyntaxError: invalid syntax
+(Pdb) print(list(nb.extras.content_types.all()))
+
+[admin | log entry, auth | group, auth | permission, auth | user, circuits | circuit, circuits | circuit termination, circuits | circuit type, circuits | provider, circuits | provider network, contenttypes | content type, dcim | cable, dcim | cable path, dcim | cable termination, dcim | console port, dcim | console port template, dcim | console server port, dcim | console server port template, dcim | device, dcim | device bay, dcim | device bay template, dcim | device role, dcim | device type, dcim | front port, dcim | front port template, dcim | interface, dcim | interface template, dcim | inventory item, dcim | inventory item role, dcim | inventory item template, dcim | location, dcim | manufacturer, dcim | module, dcim | module bay, dcim | module bay template, dcim | module type, dcim | platform, dcim | power feed, dcim | power outlet, dcim | power outlet template, dcim | power panel, dcim | power port, dcim | power port template, dcim | rack, dcim | rack reservation, dcim | rack role, dcim | rear port, dcim | rear port template, dcim | region, dcim | site, dcim | site group, dcim | virtual chassis, django_rq | queue, extras | config context, extras | config revision, extras | custom field, extras | custom link, extras | export template, extras | image attachment, extras | job result, extras | journal entry, extras | object change, extras | report, extras | script, extras | tag, extras | tagged item, extras | webhook, ipam | aggregate, ipam | ASN, ipam | FHRP group, ipam | FHRP group assignment, ipam | IP address, ipam | IP range, ipam | L2VPN, ipam | L2VPN termination, ipam | prefix, ipam | RIR, ipam | role, ipam | route target, ipam | service, ipam | service template, ipam | VLAN, ipam | VLAN group, ipam | VRF, sessions | session, social_django | association, social_django | code, social_django | nonce, social_django | partial, social_django | user social auth, taggit | tag, taggit | tagged item, tenancy | contact, tenancy | contact assignment, tenancy | contact group, tenancy | contact role, tenancy | tenant, tenancy | tenant group, users | Group, users | User, users | permission, users | token, users | User Preferences, virtualization | cluster, virtualization | cluster group, virtualization | cluster type, virtualization | virtual machine, virtualization | interface, wireless | Wireless LAN, wireless | Wireless LAN Group, wireless | wireless link]
+(Pdb)
+[admin | log entry, auth | group, auth | permission, auth | user, circuits | circuit, circuits | circuit termination, circuits | circuit type, circuits | provider, circuits | provider network, contenttypes | content type, dcim | cable, dcim | cable path, dcim | cable termination, dcim | console port, dcim | console port template, dcim | console server port, dcim | console server port template, dcim | device, dcim | device bay, dcim | device bay template, dcim | device role, dcim | device type, dcim | front port, dcim | front port template, dcim | interface, dcim | interface template, dcim | inventory item, dcim | inventory item role, dcim | inventory item template, dcim | location, dcim | manufacturer, dcim | module, dcim | module bay, dcim | module bay template, dcim | module type, dcim | platform, dcim | power feed, dcim | power outlet, dcim | power outlet template, dcim | power panel, dcim | power port, dcim | power port template, dcim | rack, dcim | rack reservation, dcim | rack role, dcim | rear port, dcim | rear port template, dcim | region, dcim | site, dcim | site group, dcim | virtual chassis, django_rq | queue, extras | config context, extras | config revision, extras | custom field, extras | custom link, extras | export template, extras | image attachment, extras | job result, extras | journal entry, extras | object change, extras | report, extras | script, extras | tag, extras | tagged item, extras | webhook, ipam | aggregate, ipam | ASN, ipam | FHRP group, ipam | FHRP group assignment, ipam | IP address, ipam | IP range, ipam | L2VPN, ipam | L2VPN termination, ipam | prefix, ipam | RIR, ipam | role, ipam | route target, ipam | service, ipam | service template, ipam | VLAN, ipam | VLAN group, ipam | VRF, sessions | session, social_django | association, social_django | code, social_django | nonce, social_django | partial, social_django | user social auth, taggit | tag, taggit | tagged item, tenancy | contact, tenancy | contact assignment, tenancy | contact group, tenancy | contact role, tenancy | tenant, tenancy | tenant group, users | Group, users | User, users | permission, users | token, users | User Preferences, virtualization | cluster, virtualization | cluster group, virtualization | cluster type, virtualization | virtual machine, virtualization | interface, wireless | Wireless LAN, wireless | Wireless LAN Group, wireless | wireless link]
+(Pdb) list(nb.extras.content_types.all())
+*** Error in argument: '(nb.extras.content_types.all())'
+(Pdb) list(nb.extras.content_types.all()
+*** Error in argument: '(nb.extras.content_types.all()'
+(Pdb) list(nb.extras.content_types.all())
+*** Error in argument: '(nb.extras.content_types.all())'
+(Pdb) for x in nb.extras.content_types.all(): print(x)
+admin | log entry
+auth | group
+auth | permission
+auth | user
+circuits | circuit
+circuits | circuit termination
+circuits | circuit type
+circuits | provider
+circuits | provider network
+contenttypes | content type
+dcim | cable
+dcim | cable path
+dcim | cable termination
+dcim | console port
+dcim | console port template
+dcim | console server port
+dcim | console server port template
+dcim | device
+dcim | device bay
+dcim | device bay template
+dcim | device role
+dcim | device type
+dcim | front port
+dcim | front port template
+dcim | interface
+dcim | interface template
+dcim | inventory item
+dcim | inventory item role
+dcim | inventory item template
+dcim | location
+dcim | manufacturer
+dcim | module
+dcim | module bay
+dcim | module bay template
+dcim | module type
+dcim | platform
+dcim | power feed
+dcim | power outlet
+dcim | power outlet template
+dcim | power panel
+dcim | power port
+dcim | power port template
+dcim | rack
+dcim | rack reservation
+dcim | rack role
+dcim | rear port
+dcim | rear port template
+dcim | region
+dcim | site
+dcim | site group
+dcim | virtual chassis
+django_rq | queue
+extras | config context
+extras | config revision
+extras | custom field
+extras | custom link
+extras | export template
+extras | image attachment
+extras | job result
+extras | journal entry
+extras | object change
+extras | report
+extras | script
+extras | tag
+extras | tagged item
+extras | webhook
+ipam | aggregate
+ipam | ASN
+ipam | FHRP group
+ipam | FHRP group assignment
+ipam | IP address
+ipam | IP range
+ipam | L2VPN
+ipam | L2VPN termination
+ipam | prefix
+ipam | RIR
+ipam | role
+ipam | route target
+ipam | service
+ipam | service template
+ipam | VLAN
+ipam | VLAN group
+ipam | VRF
+sessions | session
+social_django | association
+social_django | code
+social_django | nonce
+social_django | partial
+social_django | user social auth
+taggit | tag
+taggit | tagged item
+tenancy | contact
+tenancy | contact assignment
+tenancy | contact group
+tenancy | contact role
+tenancy | tenant
+tenancy | tenant group
+users | Group
+users | User
+users | permission
+users | token
+users | User Preferences
+virtualization | cluster
+virtualization | cluster group
+virtualization | cluster type
+virtualization | virtual machine
+virtualization | interface
+wireless | Wireless LAN
+wireless | Wireless LAN Group
+wireless | wireless link
+(Pdb) nb.extras.custom_fields.create(content_types=[asdasd])
+*** NameError: name 'asdasd' is not defined
+(Pdb) nb.extras.custom_fields.create(content_types=["asdasd"])
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'content_types': ["Invalid value. Specify a content type as '<app_label>.<model_name>'."], 'type': ['This field is required.'], 'name': ['This field is required.']}
+(Pdb) nb.extras.custom_fields.create(content_types=["ipam.IP_address"])
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'content_types': ['Invalid content type: ipam.IP_address'], 'type': ['This field is required.'], 'name': ['This field is required.']}
+(Pdb) nb.extras.custom_fields.create(content_types=["ipam.IP Address"], name="IPV4UnicastAddress", type="text")
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'content_types': ['Invalid content type: ipam.IP Address']}
+(Pdb) nb.extras.custom_fields.create(content_types=["ipam.IP address"], name="IPV4UnicastAddress", type="text")
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'content_types': ['Invalid content type: ipam.IP address']}
+(Pdb) nb.extras.custom_fields.create(content_types=["ipam.ip-addresses"], name="IPV4UnicastAddress", type="text")
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'content_types': ['Invalid content type: ipam.ip-addresses']}
+(Pdb) for x in nb.extras.content_types.all(): print(x.app_lable, x.model_name)
+*** AttributeError: object has no attribute "app_lable"
+(Pdb) for x in nb.extras.content_types.all(): print(x.app_label, x.model_name)
+*** AttributeError: object has no attribute "model_name"
+(Pdb) for x in nb.extras.content_types.all(): print("%s %s" % (x.app_label, x.model_name))
+*** AttributeError: object has no attribute "model_name"
+(Pdb) for x in nb.extras.content_types.all(): print("%s %s" % (x.app_label, x.model))
+admin logentry
+auth group
+auth permission
+auth user
+circuits circuit
+circuits circuittermination
+circuits circuittype
+circuits provider
+circuits providernetwork
+contenttypes contenttype
+dcim cable
+dcim cablepath
+dcim cabletermination
+dcim consoleport
+dcim consoleporttemplate
+dcim consoleserverport
+dcim consoleserverporttemplate
+dcim device
+dcim devicebay
+dcim devicebaytemplate
+dcim devicerole
+dcim devicetype
+dcim frontport
+dcim frontporttemplate
+dcim interface
+dcim interfacetemplate
+dcim inventoryitem
+dcim inventoryitemrole
+dcim inventoryitemtemplate
+dcim location
+dcim manufacturer
+dcim module
+dcim modulebay
+dcim modulebaytemplate
+dcim moduletype
+dcim platform
+dcim powerfeed
+dcim poweroutlet
+dcim poweroutlettemplate
+dcim powerpanel
+dcim powerport
+dcim powerporttemplate
+dcim rack
+dcim rackreservation
+dcim rackrole
+dcim rearport
+dcim rearporttemplate
+dcim region
+dcim site
+dcim sitegroup
+dcim virtualchassis
+django_rq queue
+extras configcontext
+extras configrevision
+extras customfield
+extras customlink
+extras exporttemplate
+extras imageattachment
+extras jobresult
+extras journalentry
+extras objectchange
+extras report
+extras script
+extras tag
+extras taggeditem
+extras webhook
+ipam aggregate
+ipam asn
+ipam fhrpgroup
+ipam fhrpgroupassignment
+ipam ipaddress
+ipam iprange
+ipam l2vpn
+ipam l2vpntermination
+ipam prefix
+ipam rir
+ipam role
+ipam routetarget
+ipam service
+ipam servicetemplate
+ipam vlan
+ipam vlangroup
+ipam vrf
+sessions session
+social_django association
+social_django code
+social_django nonce
+social_django partial
+social_django usersocialauth
+taggit tag
+taggit taggeditem
+tenancy contact
+tenancy contactassignment
+tenancy contactgroup
+tenancy contactrole
+tenancy tenant
+tenancy tenantgroup
+users admingroup
+users adminuser
+users objectpermission
+users token
+users userconfig
+virtualization cluster
+virtualization clustergroup
+virtualization clustertype
+virtualization virtualmachine
+virtualization vminterface
+wireless wirelesslan
+wireless wirelesslangroup
+wireless wirelesslink
+(Pdb) nb.extras.custom_fields.create(content_types=["ipam.ipaddress"], name="IPV4UnicastAddress", type="text")
+IPV4UnicastAddress
+(Pdb) print(list(nb.extras.custom_fields.all()))
+[IPV4UnicastAddress]
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields=IPV4UnicastAddress)
+*** NameError: name 'IPV4UnicastAddress' is not defined
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={IPV4UnicastAddress: {"name":"test"}})
+*** NameError: name 'IPV4UnicastAddress' is not defined
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields=[])
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'custom_fields': ['Invalid data format. Custom field data must be passed as a dictionary mapping field names to their values.']}
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"IPV4UnicastAddress":"40.90.64.80"}_
+*** SyntaxError: '(' was never closed
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"IPV4UnicastAddress":"40.90.64.80"})
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'__all__': ["Unknown field name 'IPV4UnicastAddress' in custom field data."]}
+(Pdb) for x in nb.extras.custom_fields.all(): print(dir(x))
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattr__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__key__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_add_cache', '_diff', '_endpoint_from_url', '_full_cache', '_init_cache', '_parse_values', 'api', 'choices', 'content_types', 'created', 'data_type', 'default', 'default_ret', 'delete', 'description', 'display', 'endpoint', 'filter_logic', 'full_details', 'group_name', 'has_details', 'id', 'label', 'last_updated', 'name', 'object_type', 'required', 'save', 'serialize', 'type', 'ui_visibility', 'update', 'updates', 'url', 'validation_maximum', 'validation_minimum', 'validation_regex', 'weight']
+(Pdb) for x in nb.extras.custom_fields.all(): print(dir(x.name))
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isascii', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'removeprefix', 'removesuffix', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+(Pdb) for x in nb.extras.custom_fields.all(): print(x.name)
+IPV4UnicastAddress
+(Pdb) for x in nb.extras.custom_fields.all(): print(x.id)
+1
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={1:"40.90.64.80"})
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'__all__': ["Unknown field name '1' in custom field data."]}
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={IPV4UnicastAddress\:"40.90.64.80"})
+*** SyntaxError: unexpected character after line continuation character
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={IPV4UnicastAddress:"40.90.64.80"})
+*** NameError: name 'IPV4UnicastAddress' is not defined
+(Pdb) list(nb.dcim.sites.all())[0]
+*** Error in argument: '(nb.dcim.sites.all())[0]'
+(Pdb) print(list(nb.dcim.sites.all()))
+[Edge-Prod-MIA30r9a]
+(Pdb) for x in nb.dcim.sites.all(): print(dir(x))
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattr__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__key__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_add_cache', '_diff', '_endpoint_from_url', '_full_cache', '_init_cache', '_parse_values', 'api', 'asns', 'circuit_count', 'comments', 'created', 'custom_fields', 'default_ret', 'delete', 'description', 'device_count', 'display', 'endpoint', 'facility', 'full_details', 'group', 'has_details', 'id', 'last_updated', 'latitude', 'longitude', 'name', 'physical_address', 'prefix_count', 'rack_count', 'region', 'save', 'serialize', 'shipping_address', 'slug', 'status', 'tags', 'tenant', 'time_zone', 'update', 'updates', 'url', 'virtualmachine_count', 'vlan_count']
+(Pdb) for x in nb.dcim.sites.all(): print("%s %s %s" % (x.name, x.id, x.custom_field))
+*** AttributeError: object has no attribute "custom_field"
+(Pdb) for x in nb.dcim.sites.all(): print("%s %s %s" % (x.name, x.id, x.custom_fields))
+Edge-Prod-MIA30r9a 17 {}
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={IPV4UnicastAddress="40.90.64.80"})
+*** SyntaxError: invalid syntax. Maybe you meant '==' or ':=' instead of '='?
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"IPV4UnicastAddress": "40.90.64.80"})
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'__all__': ["Unknown field name 'IPV4UnicastAddress' in custom field data."]}
+(Pdb) --KeyboardInterrupt--
+(Pdb) nb.extras.custom_fields.create(content_types=["dcim.site"], name="SiteIPV4UnicastAddress", type="text")
+SiteIPV4UnicastAddress
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"SiteIPV4UnicastAddres"="40.90.64.80"})
+*** SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='?
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"SiteIPV4UnicastAddres":"40.90.64.80"})
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'__all__': ["Unknown field name 'SiteIPV4UnicastAddres' in custom field data."]}
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={SiteIPV4UnicastAddres:"40.90.64.80"})
+*** NameError: name 'SiteIPV4UnicastAddres' is not defined
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={SiteIPV4UnicastAddress:"40.90.64.80"})
+*** NameError: name 'SiteIPV4UnicastAddress' is not defined
+(Pdb) nb.dcim.sites.create(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"SiteIPV4UnicastAddress":"40.90.64.80"})
+Edge-Prod-MIA30r9sa
+(Pdb) nb.dcim.s(name="Edge-Prod-MIA30r9sa", slug="Edge-Prod-MIA30r9as", custom_fields={"SiteIPV4UnicastAddress":"40.90.64.80"})--KeyboardInterrupt--
+(Pdb) nb.dcim.device_roles.create(name="EdgeVM", slug="EdgeVM")
+EdgeVM
+(Pdb) nb.dcim.manufacturer.create()
+*** pynetbox.core.query.RequestError: The requested url: http://172.19.249.189:8000/api/dcim/manufacturer/ could not be found.
+(Pdb) nb.dcim.manufacturers.create()
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'name': ['This field is required.'], 'slug': ['This field is required.']}
+(Pdb) nb.dcim.manufacturers.create(name="MSFT_TEST_MANUFACTURER", slug="msft")
+MSFT_TEST_MANUFACTURER
+(Pdb) print(list(nb.dcim.manufacturers.all()))
+[MSFT_TEST_MANUFACTURER]
+(Pdb) [x.id for x in nb.dcim.manufacturers.all()]
+[14]
+(Pdb) nb.dcim.device_types.create()
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'manufacturer': ['This field is required.'], 'model': ['This field is required.'], 'slug': ['This field is required.']}
+(Pdb) nb.dcim.device_types.create(manufacturer=14, model="MSFT_DEVICE_MODEL", slug="MSFT_DEVICE_TYPE")
+MSFT_DEVICE_MODEL
+(Pdb) nb.dcim.devices.create()
+*** pynetbox.core.query.RequestError: The request failed with code 400 Bad Request: {'name': ['This field is required.'], 'device_type': ['This field is required.'], 'device_role': ['This field is required.'], 'site': ['This field is required.']}
+(Pdb) #nb.dcim.devices.create(name="Edge-Prod-MIA30r9a", device_type=
+*** SyntaxError: invalid syntax
+(Pdb) [x.id for x in nb.dcim.device_types.all()]
+[12]
+(Pdb) ##nb.dcim.devices.create(name="Edge-Prod-MIA30r9a", device_type=12, device_role=
+*** SyntaxError: invalid syntax
+(Pdb) [x.id for x in nb.dcim.device_role.all()]
+*** pynetbox.core.query.RequestError: The requested url: http://172.19.249.189:8000/api/dcim/device-role/?limit=0 could not be found.
+(Pdb) [x.name for x in nb.dcim.device_role.all()]
+*** pynetbox.core.query.RequestError: The requested url: http://172.19.249.189:8000/api/dcim/device-role/?limit=0 could not be found.
+(Pdb) [x.name for x in nb.dcim.device_roles.all()]
+['EdgeVM']
+(Pdb) [x.id for x in nb.dcim.device_roles.all()]
+[13]
+(Pdb) ##nb.dcim.devices.create(name="Edge-Prod-MIA30r9a", device_type=12, device_role=13, site
+*** SyntaxError: invalid syntax
+(Pdb) [x.id for x in nb.dcim.sites.all()]
+[18]
+(Pdb) nb.dcim.devices.create(name="Edge-Prod-MIA30r9a", device_type=12, device_role=13, site=18)
+Edge-Prod-MIA30r9a
+(Pdb) --KeyboardInterrupt--
+(Pdb)
+Traceback (most recent call last):
+  File "/home/shrajendran/NETBOX/setup_netbox_afd_data.py", line 10, in <module>
+    def delete_devices():
+  File "/home/shrajendran/NETBOX/setup_netbox_afd_data.py", line 10, in <module>
+    def delete_devices():
+  File "/usr/lib/python3.10/bdb.py", line 90, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/usr/lib/python3.10/bdb.py", line 115, in dispatch_line
